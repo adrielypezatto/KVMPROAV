@@ -1,0 +1,589 @@
+{
+ "entries": [
+  {
+   "d": "2025-05-25",
+   "c": "Caio Figueiredo",
+   "s": ""
+  },
+  {
+   "d": "2025-06-01",
+   "c": "Caio Figueiredo",
+   "s": ""
+  },
+  {
+   "d": "2025-06-08",
+   "c": "Marcos Thuller",
+   "s": ""
+  },
+  {
+   "d": "2025-06-15",
+   "c": "Charles Costa",
+   "s": ""
+  },
+  {
+   "d": "2025-06-19",
+   "c": "Marcos Thuller",
+   "s": ""
+  },
+  {
+   "d": "2025-06-22",
+   "c": "Charles Costa",
+   "s": ""
+  },
+  {
+   "d": "2025-06-29",
+   "c": "Marcos Thuller",
+   "s": ""
+  },
+  {
+   "d": "2025-07-06",
+   "c": "Charles Costa",
+   "s": ""
+  },
+  {
+   "d": "2025-07-09",
+   "c": "Luiza Zichinelli",
+   "s": ""
+  },
+  {
+   "d": "2025-07-13",
+   "c": "Caio Figueiredo",
+   "s": ""
+  },
+  {
+   "d": "2025-07-20",
+   "c": "Caio Figueiredo",
+   "s": ""
+  },
+  {
+   "d": "2025-07-27",
+   "c": "Diego Camargo",
+   "s": ""
+  },
+  {
+   "d": "2025-08-03",
+   "c": "Charles Costa",
+   "s": ""
+  },
+  {
+   "d": "2025-08-10",
+   "c": "Caio Figueiredo",
+   "s": ""
+  },
+  {
+   "d": "2025-08-17",
+   "c": "Diego Camargo",
+   "s": ""
+  },
+  {
+   "d": "2025-08-24",
+   "c": "Charles Costa",
+   "s": ""
+  },
+  {
+   "d": "2025-08-31",
+   "c": "Caio Figueiredo",
+   "s": ""
+  },
+  {
+   "d": "2025-09-07",
+   "c": "Diego Camargo",
+   "s": ""
+  },
+  {
+   "d": "2025-09-14",
+   "c": "Caio Figueiredo",
+   "s": ""
+  },
+  {
+   "d": "2025-09-21",
+   "c": "Charles Costa",
+   "s": ""
+  },
+  {
+   "d": "2025-09-28",
+   "c": "Diego Camargo",
+   "s": ""
+  },
+  {
+   "d": "2025-10-05",
+   "c": "Caio Figueiredo",
+   "s": ""
+  },
+  {
+   "d": "2025-10-12",
+   "c": "Charles Costa",
+   "s": ""
+  },
+  {
+   "d": "2025-10-19",
+   "c": "Diego Camargo",
+   "s": ""
+  },
+  {
+   "d": "2025-10-26",
+   "c": "Caio Figueiredo",
+   "s": ""
+  },
+  {
+   "d": "2025-11-02",
+   "c": "Diego Camargo",
+   "s": ""
+  },
+  {
+   "d": "2025-11-09",
+   "c": "Charles Costa",
+   "s": ""
+  },
+  {
+   "d": "2025-11-15",
+   "c": "Cleiton Vieira",
+   "s": ""
+  },
+  {
+   "d": "2025-11-16",
+   "c": "Caio Figueiredo",
+   "s": ""
+  },
+  {
+   "d": "2025-11-20",
+   "c": "Susana Lima",
+   "s": ""
+  },
+  {
+   "d": "2025-11-23",
+   "c": "Diego Camargo",
+   "s": ""
+  },
+  {
+   "d": "2025-11-30",
+   "c": "Charles Costa",
+   "s": ""
+  },
+  {
+   "d": "2025-12-07",
+   "c": "Caio Figueiredo",
+   "s": ""
+  },
+  {
+   "d": "2025-12-14",
+   "c": "Diego Camargo",
+   "s": ""
+  },
+  {
+   "d": "2025-12-21",
+   "c": "Charles Costa",
+   "s": ""
+  },
+  {
+   "d": "2025-12-28",
+   "c": "Caio Figueiredo",
+   "s": ""
+  },
+  {
+   "d": "2026-01-04",
+   "c": "Thomás Aguiar",
+   "s": ""
+  },
+  {
+   "d": "2026-01-11",
+   "c": "Diego Camargo",
+   "s": ""
+  },
+  {
+   "d": "2026-01-18",
+   "c": "Charles Costa",
+   "s": ""
+  },
+  {
+   "d": "2026-01-25",
+   "c": "Caio Figueiredo",
+   "s": ""
+  },
+  {
+   "d": "2026-02-01",
+   "c": "Charles Costa",
+   "s": ""
+  },
+  {
+   "d": "2026-02-08",
+   "c": "Diego Camargo",
+   "s": ""
+  },
+  {
+   "d": "2026-02-15",
+   "c": "Charles Costa",
+   "s": ""
+  },
+  {
+   "d": "2026-02-16",
+   "c": "Charles Costa",
+   "s": ""
+  },
+  {
+   "d": "2026-02-17",
+   "c": "Charles Costa",
+   "s": ""
+  },
+  {
+   "d": "2026-02-22",
+   "c": "Caio Figueiredo",
+   "s": ""
+  },
+  {
+   "d": "2026-03-01",
+   "c": "Thomás Aguiar",
+   "s": ""
+  },
+  {
+   "d": "2026-03-08",
+   "c": "Charles Costa",
+   "s": ""
+  },
+  {
+   "d": "2026-03-15",
+   "c": "Diego Camargo",
+   "s": ""
+  },
+  {
+   "d": "2026-03-22",
+   "c": "Charles Costa",
+   "s": ""
+  },
+  {
+   "d": "2026-03-29",
+   "c": "Thomás Aguiar",
+   "s": ""
+  },
+  {
+   "d": "2026-04-03",
+   "c": "Charles Costa",
+   "s": ""
+  },
+  {
+   "d": "2026-04-05",
+   "c": "Diego Camargo",
+   "s": ""
+  },
+  {
+   "d": "2026-04-12",
+   "c": "Charles Costa",
+   "s": ""
+  },
+  {
+   "d": "2026-04-19",
+   "c": "Thomás Aguiar",
+   "s": ""
+  },
+  {
+   "d": "2026-04-21",
+   "c": "Charles Costa",
+   "s": ""
+  },
+  {
+   "d": "2026-04-26",
+   "c": "Diego Camargo",
+   "s": ""
+  },
+  {
+   "d": "2026-05-01",
+   "c": "Charles Costa",
+   "s": ""
+  },
+  {
+   "d": "2026-05-03",
+   "c": "Diego Camargo",
+   "s": ""
+  },
+  {
+   "d": "2026-05-10",
+   "c": "Thomás Aguiar",
+   "s": ""
+  },
+  {
+   "d": "2026-05-17",
+   "c": "Charles Costa",
+   "s": ""
+  },
+  {
+   "d": "2026-05-24",
+   "c": "Thomás Aguiar",
+   "s": ""
+  },
+  {
+   "d": "2026-05-31",
+   "c": "Diego Camargo",
+   "s": ""
+  },
+  {
+   "d": "2026-06-04",
+   "c": "Charles Costa",
+   "s": ""
+  },
+  {
+   "d": "2026-06-07",
+   "c": "Thomás Aguiar",
+   "s": ""
+  },
+  {
+   "d": "2026-06-14",
+   "c": "Diego Camargo",
+   "s": ""
+  },
+  {
+   "d": "2026-06-21",
+   "c": "Charles Costa",
+   "s": "Diego Camargo"
+  },
+  {
+   "d": "2026-06-28",
+   "c": "Thomás Aguiar",
+   "s": "Charles Costa"
+  },
+  {
+   "d": "2026-07-04",
+   "c": "Efetivo operacional",
+   "s": "Thomás Aguiar"
+  },
+  {
+   "d": "2026-07-05",
+   "c": "Kelvin Camilo",
+   "s": "Diego Camargo"
+  },
+  {
+   "d": "2026-07-09",
+   "c": "Thomás Aguiar",
+   "s": "Charles Costa"
+  },
+  {
+   "d": "2026-07-11",
+   "c": "Efetivo operacional",
+   "s": "Thomás Aguiar"
+  },
+  {
+   "d": "2026-07-12",
+   "c": "Charles Costa",
+   "s": "Kelvin Camilo"
+  },
+  {
+   "d": "2026-07-18",
+   "c": "Efetivo operacional",
+   "s": "Charles Costa"
+  },
+  {
+   "d": "2026-07-19",
+   "c": "Diego Camargo",
+   "s": "Thomás Aguiar"
+  },
+  {
+   "d": "2026-07-25",
+   "c": "Efetivo operacional",
+   "s": "Diego Camargo"
+  },
+  {
+   "d": "2026-07-26",
+   "c": "Thomás Aguiar",
+   "s": "Kelvin Camilo"
+  },
+  {
+   "d": "2026-08-01",
+   "c": "Efetivo operacional",
+   "s": "Charles Costa"
+  },
+  {
+   "d": "2026-08-02",
+   "c": "Thomás Aguiar",
+   "s": "Diego Camargo"
+  },
+  {
+   "d": "2026-08-08",
+   "c": "Efetivo operacional",
+   "s": "Davi Barreto"
+  },
+  {
+   "d": "2026-08-09",
+   "c": "Kelvin Camilo",
+   "s": "Thomás Aguiar"
+  },
+  {
+   "d": "2026-08-15",
+   "c": "Efetivo operacional",
+   "s": "Kelvin Camilo"
+  },
+  {
+   "d": "2026-08-16",
+   "c": "Davi Barreto",
+   "s": "Diego Camargo"
+  },
+  {
+   "d": "2026-08-22",
+   "c": "Efetivo operacional",
+   "s": "Charles Costa"
+  },
+  {
+   "d": "2026-08-23",
+   "c": "Diego Camargo",
+   "s": "Thomás Aguiar"
+  },
+  {
+   "d": "2026-08-29",
+   "c": "Efetivo operacional",
+   "s": "Diego Camargo"
+  },
+  {
+   "d": "2026-08-30",
+   "c": "Charles Costa",
+   "s": "Davi Barreto"
+  },
+  {
+   "d": "2026-09-05",
+   "c": "Efetivo operacional",
+   "s": "Thomás Aguiar"
+  },
+  {
+   "d": "2026-09-06",
+   "c": "Diego Camargo",
+   "s": "Davi Barreto"
+  },
+  {
+   "d": "2026-09-07",
+   "c": "Charles Costa",
+   "s": "Thomás Aguiar"
+  },
+  {
+   "d": "2026-09-12",
+   "c": "Efetivo operacional",
+   "s": "Charles Costa"
+  },
+  {
+   "d": "2026-09-13",
+   "c": "Davi Barreto",
+   "s": "Diego Camargo"
+  },
+  {
+   "d": "2026-09-19",
+   "c": "Efetivo operacional",
+   "s": "Davi Barreto"
+  },
+  {
+   "d": "2026-09-20",
+   "c": "Kelvin Camilo",
+   "s": "Diego Camargo"
+  },
+  {
+   "d": "2026-09-26",
+   "c": "Efetivo operacional",
+   "s": "Charles Costa"
+  },
+  {
+   "d": "2026-09-27",
+   "c": "Thomás Aguiar",
+   "s": "Davi Barreto"
+  },
+  {
+   "d": "2026-10-03",
+   "c": "Efetivo operacional",
+   "s": "Thomás Aguiar"
+  },
+  {
+   "d": "2026-10-04",
+   "c": "Kelvin Camilo",
+   "s": "Charles Costa"
+  },
+  {
+   "d": "2026-10-10",
+   "c": "Efetivo operacional",
+   "s": "Diego Camargo"
+  },
+  {
+   "d": "2026-10-11",
+   "c": "Davi Barreto",
+   "s": "Kelvin Camilo"
+  },
+  {
+   "d": "2026-10-12",
+   "c": "Thomás Aguiar",
+   "s": "Charles Costa"
+  },
+  {
+   "d": "2026-10-17",
+   "c": "Efetivo operacional",
+   "s": "Davi Barreto"
+  },
+  {
+   "d": "2026-10-18",
+   "c": "Diego Camargo",
+   "s": "Thomás Aguiar"
+  },
+  {
+   "d": "2026-10-24",
+   "c": "Efetivo operacional",
+   "s": "Diego Camargo"
+  },
+  {
+   "d": "2026-10-25",
+   "c": "Charles Costa",
+   "s": "Davi Barreto"
+  },
+  {
+   "d": "2026-10-31",
+   "c": "Efetivo operacional",
+   "s": "Kelvin Camilo"
+  },
+  {
+   "d": "2026-11-01",
+   "c": "Thomás Aguiar",
+   "s": "Davi Barreto"
+  },
+  {
+   "d": "2026-11-02",
+   "c": "Charles Costa",
+   "s": "Diego Camargo"
+  },
+  {
+   "d": "2026-11-07",
+   "c": "Efetivo operacional",
+   "s": "Thomás Aguiar"
+  },
+  {
+   "d": "2026-11-08",
+   "c": "Diego Camargo",
+   "s": "Kelvin Camilo"
+  },
+  {
+   "d": "2026-11-14",
+   "c": "Efetivo operacional",
+   "s": "Davi Barreto"
+  },
+  {
+   "d": "2026-11-15",
+   "c": "Kelvin Camilo",
+   "s": "Diego Camargo"
+  },
+  {
+   "d": "2026-11-20",
+   "c": "Davi Barreto",
+   "s": "Thomás Aguiar"
+  },
+  {
+   "d": "2026-11-21",
+   "c": "Efetivo operacional",
+   "s": "Kelvin Camilo"
+  },
+  {
+   "d": "2026-11-22",
+   "c": "Diego Camargo",
+   "s": "Davi Barreto"
+  },
+  {
+   "d": "2026-11-28",
+   "c": "Efetivo operacional",
+   "s": "Diego Camargo"
+  },
+  {
+   "d": "2026-11-29",
+   "c": "Thomás Aguiar",
+   "s": "Charles Costa"
+  }
+ ]
+}
