@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" data-keep>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" data-keep>
+<title data-keep>Rodízio Farol</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Source+Sans+3:wght@400;600&display=swap" data-keep>
+<style id="css">
+:root{--bg:#EDF2F5;--panel:#fff;--ink:#12293B;--muted:#5A6F80;--line:#D3DEE6;--sea:#1B5E6B;--lamp:#E9A21B;--lampfg:#12293B;--bad:#B3261E;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0C1A25;--panel:#12273A;--ink:#E8EEF3;--muted:#93A8B8;--line:#233A4E;--sea:#5CB8C4;--lamp:#F2B33D;--bad:#FF8A80}}
+:root[data-theme="dark"]{--bg:#0C1A25;--panel:#12273A;--ink:#E8EEF3;--muted:#93A8B8;--line:#233A4E;--sea:#5CB8C4;--lamp:#F2B33D;--bad:#FF8A80}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.5 "Source Sans 3",system-ui,sans-serif}
+#app{max-width:1040px;margin:0 auto;padding:20px 16px 48px}
+h1,h2,.num{font-family:"Bricolage Grotesque","Source Sans 3",system-ui,sans-serif;margin:0}
+h1{font-size:clamp(28px,5vw,40px);font-weight:800;letter-spacing:-.01em}
+h2{font-size:18px;font-weight:600;margin-bottom:12px}
+.sub{color:var(--muted);margin:2px 0 0}
+.top{display:flex;flex-wrap:wrap;gap:12px 24px;align-items:end;justify-content:space-between;margin-bottom:20px}
+.nav{display:flex;gap:6px;align-items:center}
+button,select,input{font:inherit;color:inherit}
+button{cursor:pointer}
+.nav button,.btn{border:1px solid var(--line);background:var(--panel);border-radius:8px;padding:8px 12px;min-height:40px}
+.nav select{border:1px solid var(--line);background:var(--panel);border-radius:8px;padding:8px 10px;min-height:40px;text-transform:capitalize}
+.btn.pri{background:var(--sea);border-color:var(--sea);color:#fff;font-weight:600}
+:root[data-theme="dark"] .btn.pri{color:#0C1A25}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .btn.pri{color:#0C1A25}}
+:focus-visible{outline:3px solid var(--lamp);outline-offset:2px}
+.grid{display:grid;grid-template-columns:minmax(0,300px) minmax(0,1fr);gap:16px;margin-bottom:16px}
+@media (max-width:720px){.grid{grid-template-columns:1fr}}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px;margin-bottom:16px}
+.grid .card{margin-bottom:0}
+.count{border-top:8px solid var(--lamp)}
+.num{font-size:96px;line-height:1;font-weight:800}
+.count p{margin:6px 0 0}
+.chk{display:flex;gap:8px;align-items:center;margin-top:14px;color:var(--muted);font-size:15px}
+.chk input{width:18px;height:18px;accent-color:var(--sea)}
+.p{display:grid;grid-template-columns:minmax(120px,190px) 1fr auto;gap:4px 12px;align-items:center;padding:7px 0;border-bottom:1px solid var(--line)}
+.p:last-child{border-bottom:0}
+.bar{height:8px;border-radius:4px;background:var(--line);overflow:hidden}
+.bar i{display:block;height:100%;background:var(--sea);border-radius:4px}
+.p b{font-variant-numeric:tabular-nums}
+.p small,.muted{color:var(--muted)}
+.empty{color:var(--muted);margin:0}
+.form{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;align-items:end}
+label{display:grid;gap:4px;font-weight:600;font-size:15px}
+label input{border:1px solid var(--line);background:var(--bg);border-radius:8px;padding:8px 10px;min-height:40px;font-weight:400}
+.msg{margin:10px 0 0;min-height:1.5em}.msg.err{color:var(--bad)}
+.tw{overflow-x:auto}
+table{width:100%;border-collapse:collapse;min-width:460px}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line)}
+th{font-weight:600;color:var(--muted);font-size:14px}
+td.d{white-space:nowrap;font-variant-numeric:tabular-nums}
+td.w{text-transform:capitalize}
+tr.g td:nth-child(3){color:var(--muted)}
+.rm{border:0;background:none;color:var(--muted);text-decoration:underline;padding:4px;min-height:32px}
+.rm.arm{color:var(--bad);font-weight:600}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script id="code">
+(function(){
+var MESES=['janeiro','fevereiro','março','abril','maio','junho','julho','agosto','setembro','outubro','novembro','dezembro'];
+var GRUPO='Efetivo operacional';
+var state={entries:[]},cfg={};try{cfg=JSON.parse(localStorage.getItem('cfg')||'{}')}catch(e){}
+var canEdit=false,withSub=false,busy=false,month=null,note='',noteErr=false;
+try{month=sessionStorage.getItem('mes')}catch(e){}
+var app=document.getElementById('app');
+var pad=function(n){return String(n).padStart(2,'0')};
+var esc=function(s){return String(s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})};
+var dow=function(d){return new Date(d+'T12:00:00Z').toLocaleDateString('pt-BR',{weekday:'long',timeZone:'UTC'})};
+var fmt=function(d){return d.split('-').reverse().join('/')};
+var mk=function(d){return d.slice(0,7)};
+var mlabel=function(k){var p=k.split('-');return MESES[+p[1]-1]+' de '+p[0]};
+function todayKey(){var t=new Date();return t.getFullYear()+'-'+pad(t.getMonth()+1)}
+function months(){var s={};state.entries.forEach(function(e){s[mk(e.d)]=1});s[todayKey()]=1;return Object.keys(s).sort()}
+function allNames(){var s={};state.entries.forEach(function(e){if(e.c)s[e.c]=1;if(e.s)s[e.s]=1});s[GRUPO]=1;return Object.keys(s).sort(function(a,b){return a.localeCompare(b,'pt-BR')})}
+
+function repoOf(){if(cfg.repo)return cfg.repo;var h=location.hostname;if(/\.github\.io$/.test(h)){var p=location.pathname.split('/')[1];return h.split('.')[0]+'/'+(p||h)}return ''}
+function b64(t){var r='';new TextEncoder().encode(t).forEach(function(x){r+=String.fromCharCode(x)});return btoa(r)}
+function unb64(t){var r=atob(t.replace(/\n/g,'')),u=new Uint8Array(r.length);for(var i=0;i<r.length;i++)u[i]=r.charCodeAt(i);return new TextDecoder().decode(u)}
+function shell(){
+  app.innerHTML='<div class="top"><div><h1>Rodízio Farol</h1><p class="sub">Escala de colaboradores por data</p></div><div class="nav" id="nav"></div></div>'
+  +'<div id="view"></div>'
+  +'<section class="card" id="formbox" hidden><h2>Cadastrar nova data</h2>'
+  +'<div class="form"><label>Data<input type="date" id="fd"></label>'
+  +'<label>Colaborador<input id="fc" list="nm" autocomplete="off" placeholder="Escolha ou digite um nome"></label>'
+  +'<label>Suplente (opcional)<input id="fs" list="nm" autocomplete="off" placeholder="Escolha ou digite um nome"></label>'
+  +'<button class="btn pri" data-act="add">Cadastrar data</button></div>'
+  +'<datalist id="nm"></datalist><p class="msg" id="msg" role="status"></p></section>'
+  +'<section class="card"><h2 id="th"></h2><div class="tw" id="tb"></div></section>'
+  +'<details class="card"><summary>Acesso para edição</summary><div class="form" style="margin-top:12px"><label>Repositório (usuario/repositorio)<input id="cr"></label><label>Token do GitHub<input id="ct" type="password" autocomplete="off"></label><button class="btn pri" data-act="cfg">Salvar acesso</button><button class="btn" data-act="cfgx">Sair</button></div></details>'
+  +'<section hidden><h2 id="th0"></h2><div class="tw" id="tb"></div></section>';
+}
+
+function render(){
+  canEdit=!!cfg.token;
+  var ms=months();
+  if(!month||ms.indexOf(month)<0)month=ms.indexOf(todayKey())>=0?todayKey():ms[ms.length-1];
+  var i=ms.indexOf(month);
+  document.getElementById('nav').innerHTML='<button data-act="prev" aria-label="Mês anterior"'+(i<1?' disabled':'')+'>&lsaquo;</button>'
+    +'<select id="ms" aria-label="Mês">'+ms.map(function(k){return '<option value="'+k+'"'+(k===month?' selected':'')+'>'+mlabel(k)+'</option>'}).join('')+'</select>'
+    +'<button data-act="next" aria-label="Próximo mês"'+(i>=ms.length-1?' disabled':'')+'>&rsaquo;</button>';
+  var list=state.entries.filter(function(e){return mk(e.d)===month}).sort(function(a,b){return a.d.localeCompare(b.d)||a.c.localeCompare(b.c)});
+  var tit={},sub={};
+  list.forEach(function(e){if(e.c&&e.c!==GRUPO)tit[e.c]=(tit[e.c]||0)+1;if(e.s)sub[e.s]=(sub[e.s]||0)+1});
+  var names={};Object.keys(tit).forEach(function(n){names[n]=1});
+  if(withSub)Object.keys(sub).forEach(function(n){names[n]=1});
+  var tot=function(r){return r.t+(withSub?r.s:0)};
+  var rows=Object.keys(names).map(function(n){return {n:n,t:tit[n]||0,s:sub[n]||0}}).sort(function(a,b){return tot(b)-tot(a)||a.n.localeCompare(b.n,'pt-BR')});
+  var max=Math.max.apply(null,[1].concat(rows.map(tot)));
+  var nsub=Object.keys(sub).length;
+  var v='<div class="grid"><section class="card count"><div class="num">'+rows.length+'</div>'
+    +'<p><b>'+(rows.length===1?'pessoa atuou':'pessoas atuaram')+'</b> em '+mlabel(month)+'</p>'
+    +(withSub?'':'<p class="muted">'+nsub+(nsub===1?' suplente escalado':' suplentes escalados')+' no mês</p>')
+    +'<label class="chk"><input type="checkbox" id="ws"'+(withSub?' checked':'')+'>Contar suplentes também</label></section>'
+    +'<section class="card"><h2>Colaboradores do mês</h2>'
+    +(rows.length?rows.map(function(r){return '<div class="p"><span>'+esc(r.n)+'</span><span class="bar"><i style="width:'+Math.round(tot(r)/max*100)+'%"></i></span><span><b>'+r.t+(r.t===1?' data':' datas')+'</b>'+(r.s?' <small>+ '+r.s+' como suplente</small>':'')+'</span></div>'}).join(''):'<p class="empty">Nenhuma data cadastrada neste mês.</p>')
+    +'</section></div>';
+  document.getElementById('view').innerHTML=v;
+  document.getElementById('th').textContent='Datas de '+mlabel(month);
+  document.getElementById('tb').innerHTML=list.length?'<table><thead><tr><th>Data</th><th>Dia</th><th>Colaborador</th><th>Suplente</th>'+(canEdit?'<th></th>':'')+'</tr></thead><tbody>'
+    +list.map(function(e){return '<tr'+(e.c===GRUPO?' class="g"':'')+'><td class="d">'+fmt(e.d)+'</td><td class="w">'+dow(e.d)+'</td><td>'+esc(e.c)+'</td><td>'+esc(e.s||'—')+'</td>'
+      +(canEdit?'<td><button class="rm" data-act="rm" data-k="'+esc(e.d+'|'+e.c)+'">Remover</button></td>':'')+'</tr>'}).join('')+'</tbody></table>':'<p class="empty">Nenhuma data cadastrada neste mês.</p>';
+  document.getElementById('nm').innerHTML=allNames().map(function(n){return '<option value="'+esc(n)+'">'}).join('');
+  document.getElementById('formbox').hidden=!canEdit;
+  var m=document.getElementById('msg');m.textContent=note;m.className='msg'+(noteErr?' err':'');
+}
+
+async function save(mut){
+  if(busy)return;busy=true;note='Salvando…';noteErr=false;render();
+  try{
+    var url='https://api.github.com/repos/'+repoOf()+'/contents/data.json';
+    var H={Authorization:'Bearer '+cfg.token,Accept:'application/vnd.github+json'};
+    var g=await fetch(url,{headers:H});
+    if(!g.ok)throw {auth:1};
+    var cur=await g.json();
+    var next=mut(JSON.parse(unb64(cur.content)).entries).sort(function(a,b){return a.d.localeCompare(b.d)||a.c.localeCompare(b.c)});
+    var p=await fetch(url,{method:'PUT',headers:H,body:JSON.stringify({message:'Atualiza rodízio',content:b64(JSON.stringify({entries:next},null,1)),sha:cur.sha})});
+    if(!p.ok)throw {auth:p.status===401||p.status===403||p.status===404};
+    state={entries:next};note='Salvo. As demais pessoas verão a mudança em cerca de 1 minuto.';
+  }catch(err){note=err&&err.auth?'Token inválido ou sem acesso a este repositório.':'Não foi possível salvar. Tente novamente.';noteErr=true}
+  busy=false;render();
+}
+
+app.addEventListener('click',function(ev){
+  var b=ev.target.closest('[data-act]');if(!b)return;
+  var act=b.dataset.act,ms=months(),i=ms.indexOf(month);
+  if(act==='prev'&&i>0){month=ms[i-1];note='';render()}
+  else if(act==='next'&&i<ms.length-1){month=ms[i+1];note='';render()}
+  else if(act==='cfg'){cfg={repo:document.getElementById('cr').value.trim(),token:document.getElementById('ct').value.trim()};try{localStorage.setItem('cfg',JSON.stringify(cfg))}catch(e){}document.getElementById('ct').value='';note='';render()}
+  else if(act==='cfgx'){cfg={};try{localStorage.removeItem('cfg')}catch(e){}render()}
+  else if(act==='add'){
+    var d=document.getElementById('fd').value,c=document.getElementById('fc').value.trim().replace(/\s+/g,' '),s=document.getElementById('fs').value.trim().replace(/\s+/g,' ');
+    if(!d||!c){note='Informe a data e o colaborador.';noteErr=true;render();return}
+    if(state.entries.some(function(e){return e.d===d&&e.c.toLowerCase()===c.toLowerCase()})){note='Essa data já está cadastrada para este colaborador.';noteErr=true;render();return}
+    if(s&&s.toLowerCase()===c.toLowerCase()){note='O suplente deve ser diferente do colaborador.';noteErr=true;render();return}
+    month=mk(d);
+    save(function(l){return l.concat([{d:d,c:c,s:s}])});
+  }
+  else if(act==='rm'){
+    if(!b.classList.contains('arm')){b.classList.add('arm');b.textContent='Confirmar';setTimeout(function(){if(b.isConnected){b.classList.remove('arm');b.textContent='Remover'}},3000);return}
+    var k=b.dataset.k;
+    save(function(l){return l.filter(function(e){return e.d+'|'+e.c!==k})});
+  }
+});
+app.addEventListener('change',function(ev){
+  if(ev.target.id==='ms'){month=ev.target.value;note='';render()}
+  else if(ev.target.id==='ws'){withSub=ev.target.checked;render()}
+});
+
+shell();document.getElementById('cr').value=repoOf();render();
+fetch('data.json?t='+Date.now()).then(function(r){return r.json()}).then(function(j){state=j;render()}).catch(function(){note='Não foi possível carregar os dados.';noteErr=true;render()});
+})();
+</script>
+</body>
+</html>
